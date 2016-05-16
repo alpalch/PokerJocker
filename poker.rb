@@ -20,7 +20,17 @@ class Deck
     a = @deck[rand(@deck.size)][rand(@deck[0].size)]
     return a
   end
+
+# Deal two cards in player`s hand
+  def hand_deal
+    hand = []
+    @card = self.random_card_deal
+    2.times do
+      hand.push(self.random_card_deal)
+    end
+    print hand
+  end
 end
 
 alpha = Deck.new
-print alpha.random_card_deal
+print alpha.hand_deal
