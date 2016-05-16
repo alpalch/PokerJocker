@@ -28,9 +28,20 @@ class Deck
     2.times do
       hand.push(self.random_card_deal)
     end
-    print hand
+    return
+  end
+
+# Public cards deal
+  def public_deal
+    public_cards = []
+    @card = self.random_card_deal
+    5.times do
+      public_cards.push(self.random_card_deal)
+    end
+    return public_cards
   end
 end
 
 alpha = Deck.new
 print alpha.hand_deal
+print alpha.public_deal
