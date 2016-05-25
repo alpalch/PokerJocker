@@ -1,5 +1,4 @@
-cards = ["SQ", "SK", "ST", "SJ", "D4", "S9", "DA"]
-
+cards = ["SQ", "HQ", "DQ", "CQ", "D4", "S9", "DA"]
 
 $cards_values = {
     '2' => 2,
@@ -17,66 +16,6 @@ $cards_values = {
     'A' => 14
 }
 $count = 0
-# $b = []
-# cards.each do |i|
-#   cards.each do |j|
-#     if i == j
-#       next
-#     elsif i[1].chr == j[1].chr
-#       if $b.count(j) == 0
-#         $b.push(j)
-#       end
-#     end
-#   end
-# end
-# print $b
-# Four of a kind check
-# $count = 0
-# cards.each do |i|
-#   cards.each do |j|
-#     if i == j
-#       next
-#     elsif i[1].chr == j[1].chr
-#       $count += 1
-#     end
-#   end
-# end
-
-# if $count == 4
-#   print 'Four of a kind'
-# end
-# # When we have 3 pairs, delete 1 pair, which have min value
-# if $b.size == 6
-#   $b.each do |i|
-#     $b.each do |j|
-#       if i == j
-#         next
-#       end
-#       if $b.size > 4
-#         if $cards_values[i[1].chr] > $cards_values[j[1].chr]
-#           $b.delete(j)
-#         end
-#       end
-#     end
-#   end
-# end
-#
-# if $b.size == 2
-#   print 'Pair'
-# elsif $b.size == 3
-#   print 'Three of a kind'
-# elsif $b.size == 4
-#   puts 'Two pair'
-#   # print $b
-# elsif $b.size == 5
-#   print 'Full House'
-# elsif $b.size == 6
-#   print $b.sort!
-# else
-#   print 'Else'
-# end
-# puts $b
-# puts a
 $clubs_suit = []
 $diamonds_suit = []
 $hearts_suit = []
@@ -238,7 +177,3 @@ elsif $spikes_suit.size >= 5
     print 'Flush'
   end
 end
-print $clubs_suit
-print $diamonds_suit
-print $hearts_suit
-print $spikes_suit
