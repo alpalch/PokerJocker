@@ -5,43 +5,69 @@ class Deck
   def deck_generator
     suits = ['H', 'D', 'C', 'S']
     values = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
-    my_deck = Array.new(suits.length).map!{Array.new(values.length)}
-    my_deck.each_index { |i|
-        my_deck[i].each_index {|j|
-          my_deck[i][j] = suits[i] + values[j]
+    my_deck1 = Array.new(suits.length).map!{Array.new(values.length)}
+    my_deck1.each_index { |i|
+        my_deck1[i].each_index {|j|
+          my_deck1[i][j] = suits[i] + values[j]
         }
     }
-    return my_deck
+    my_deck = Array.new
+    my_deck1.each_index {|i|
+      my_deck1[i].each_index {|j|
+        my_deck.push(my_deck1[i][j])
+      }
+    }
+    my_deck
+  end
+
+  def deck_init
+    $deck = self.deck_generator
   end
 
 # Deal random card
   def random_card_deal
-    @deck = self.deck_generator
-    a = @deck[rand(@deck.size)][rand(@deck[0].size)]
-    return a
+    @a = $deck[rand($deck.size)]
+    $deck.delete(@a)
+    @a
   end
 
 # Deal two cards in player`s hand
   def hand_deal
     hand = []
-    @card = self.random_card_deal
     2.times do
-      hand.push(self.random_card_deal)
+      @card = self.random_card_deal
+      hand.push(@card)
     end
-    return
+    hand
   end
 
 # Public cards deal
   def public_deal
     public_cards = []
-    @card = self.random_card_deal
     5.times do
+      @card = self.random_card_deal
       public_cards.push(self.random_card_deal)
     end
-    return public_cards
+    public_cards
+  end
+
+# All card on the desk
+  def desk_cards
+    desk = []
+    self.public_deal.each do |i|
+      desk.push(i)
+    end
+    self.hand_deal.each do |i|
+      desk.push(i)
+    end
+    desk
   end
 end
 
 alpha = Deck.new
-print alpha.hand_deal
-print alpha.public_deal
+alpha.deck_init
+# print alpha.random_card_deal(4)
+# print alpha.hand_deal
+# print alpha.public_deal
+# print alpha.deck_generator
+print alpha.desk_cards
