@@ -63,11 +63,3 @@ class Deck
     desk
   end
 end
-
-alpha = Deck.new
-alpha.deck_init
-# print alpha.random_card_deal(4)
-# print alpha.hand_deal
-# print alpha.public_deal
-# print alpha.deck_generator
-print alpha.desk_cards
